@@ -32,6 +32,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 		http.authorizeRequests()
 		.antMatchers("/usuarios/logar").permitAll()
 		.antMatchers("/usuarios/cadastrar").permitAll()
+		.antMatchers("/usuarios/{id}").permitAll()
 		.anyRequest().authenticated() //Demais requisiçoes precisam de token
 		.and().httpBasic()
 		.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) //informa o tipo de sessão nesse caso STALESS que não guarda sessão
